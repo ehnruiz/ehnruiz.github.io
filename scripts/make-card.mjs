@@ -1,5 +1,5 @@
 // Renders a 1200x630 Open Graph card, in the manner of the site: cream background, Newsreader, text bottom-left.
-//   node scripts/make-card.mjs assets/cards/index-card.png                       # site card: the name alone
+//   node scripts/make-card.mjs assets/cards/site-card.png                       # site card: the name alone
 //   node scripts/make-card.mjs assets/cards/<slug>.png "Essay title"             # essay card: title, name beneath
 // Needs Playwright with Chromium. On this machine it is installed in ~/projects/microsite-xray, so run with
 //   NODE_PATH=$HOME/projects/microsite-xray/node_modules node scripts/make-card.mjs ...

@@ -6,7 +6,7 @@
   {%- assign page_title = page.title | default: site.title -%}
   {%- if page.url == '/' -%}{%- assign page_title = site.title -%}{%- endif -%}
   {%- assign page_description = page.description | default: page.subtitle | default: site.description -%}
-  {%- assign page_image = page.image | default: '/assets/cards/index-card.png' | absolute_url -%}
+  {%- assign page_image = page.image | default: '/assets/cards/site-card.png' | absolute_url -%}
   <title>{% if page.url != '/' %}{{ page_title }} — {% endif %}{{ site.title }}</title>
   <meta content="{{ page_description | strip_html | strip_newlines | escape }}" name="description">
   <meta content="{{ page_title | escape }}" property="og:title">
@@ -22,6 +22,11 @@
   <meta content="summary_large_image" name="twitter:card">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
+  <meta name="author" content="{{ site.author.name }}">
+  {%- if page.layout == 'essay' %}
+  <meta property="article:author" content="{{ site.author.name }}">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {%- endif %}
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta name="color-scheme" content="light dark">
