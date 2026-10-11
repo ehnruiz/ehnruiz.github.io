@@ -1,11 +1,11 @@
 ---
 title: One Month at the Frontier
 subtitle: What thirty days of building X-Ray taught me about pace, quality and leading with AI
-description: One month after the first pull request, a look at what shipped, what we learned, and why a medical device company's web team should want to stand at the frontier of AI engineering.
+description: One month after the first pull request, a look at what shipped, what I got wrong, and why a medical device company's web team should want to stand at the frontier of AI engineering.
 kind: essay
 ---
 
-<p class="lede">A month ago, X-Ray was an empty repository and a conviction. The conviction was that a website carrying Arthrex's name should be held to the same standard as everything else that carries it, and that holding it there should take minutes, not meetings. Thirty days later it audits every one of our microsites every Sunday, scores them, tells their owners what to fix and how, and answers questions about them from a chat window. This essay is about how that happened, what it cost, what we got wrong, and why I think it matters well beyond one tool.</p>
+<p class="lede">A month ago, X-Ray was an empty repository and a conviction. The conviction was that a website carrying Arthrex's name should be held to the same standard as everything else that carries it, and that holding it there should take minutes, not meetings. Thirty days later it audits every one of our microsites every Sunday and any of them on demand, scores them, tells their owners what to fix and how, and answers questions about them from a chat window. This essay is about how that happened, what it cost, what we got wrong, and why I think it matters well beyond one tool.</p>
 
 <div class="numbers">
 <div><b>205</b><span>pull requests merged</span></div>
@@ -20,7 +20,7 @@ kind: essay
 
 Arthrex's mission is Helping Surgeons Treat Their Patients Better®. Most of that happens in an operating room. Some of it happens on a screen, when a patient types "bunion surgery" into a search box at eleven at night, or a surgeon looks up a technique before a case. We publish dozens of sites for those moments, built by different teams on different platforms, and each of them is a promise. A page that renders an empty hero on a phone, a contact form whose Submit is a styled box that sends nothing, a product name spelled three ways, a copyright line two years stale: none of these is a catastrophe, and all of them break the promise a little.
 
-Before X-Ray, we found those things the way everyone does, which is to say someone noticed, or someone did not. The question I wanted to answer was simple. What would it take for every site to be checked, every week, by something that never gets bored, never skips the long pages, and never pretends it looked when it did not?
+Before X-Ray, we found those things the way everyone does, which is to say someone noticed, or someone did not. The question I wanted to answer was simple. What would it take for every site to be checked, every week and whenever someone asks, by something that never gets bored, never skips the long pages, and never pretends it looked when it did not?
 
 The honest answer, a month ago, would have been "a quarter, a small team and a lot of patience." It took a month, mostly me, and a team of AI agents I learned to lead along the way.
 
@@ -50,9 +50,9 @@ The same discipline applies to numbers. "Measured before it was written" became 
 
 None of this slowed us down. It is what let us go fast. An agent working inside a repository with a floor guard, a proof-of-test script and a review skill that names the paths where the stakes are higher is an agent that can be trusted with a ticket at ten at night. Quality was the enabler of the pace, not its price.
 
-## What we learned
+## What I got wrong
 
-A month is long enough to be wrong in instructive ways. These are the ones I keep coming back to.
+A month is long enough to be wrong in instructive ways. These are the mistakes I keep coming back to, and what each one taught me.
 
 **1. Floating point does not care about your tests.** The five category weights of the Site Health Score summed to 1.0000000000000002. A perfect site scored 99.99999999999997 and never got its badge. The tests had typed 100 by hand, so they could not see it. The lesson is not about floating point. It is that a test which asserts the value you hoped for, rather than the value the code produces, tests your hope.
 
@@ -86,7 +86,7 @@ None of these were on a roadmap in September. They happened because the pace lef
 
 Arthrex's core value is Making People Better, and it stands on three pillars: Making Patients Better, Making Employees Better, Making Communities Better. I did not set out to write an essay about a crawler that maps onto them, but a month in, it does.
 
-**Patients** are the people on the other side of every page we audit. A page they can read on a phone, in their language, with the safety information next to the claim and a form that actually sends, is a small act of care. Checking it every week, without exception, is how a value becomes a habit.
+**Patients** are the people on the other side of every page we audit. A page they can read on a phone, in their language, with the safety information next to the claim and a form that actually sends, is a small act of care. Checking it every week, and again the moment someone asks, is how a value becomes a habit.
 
 **Employees** are the site owners, business analysts and content editors who used to find out about problems from a colleague or a customer. Now they get a card in their channel with a score, a list ordered by how many real visitors each problem affects, and a guide to the fix. The agents did not replace anyone's judgment. They freed it from the tedious part.
 
