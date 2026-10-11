@@ -1,18 +1,40 @@
 ---
 layout: default
+title: Emmanuel Ruiz
 ---
+<section class="bio">
+  <p>Emmanuel Ruiz is a software engineer at <a href="https://www.arthrex.com/">Arthrex</a>, a global medical device company whose mission is Helping Surgeons Treat Their Patients Better<sup>®</sup>. He works on the web platform behind arthrex.com and its family of sites, and on X-Ray, the quality gate that audits them every week.</p>
+  <p>This site is where he writes about building software at the frontier: working with AI agents as a team, shipping at a pace that used to be unthinkable, and refusing to let quality be the price of that pace.</p>
+</section>
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+{% assign essays = site.posts | where: "kind", "essay" %}
+{% assign shorts = site.posts | where: "kind", "short" %}
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+{% if essays.size > 0 %}
+<section class="list">
+  <h2>Essays</h2>
+  <ul>
+    {% for post in essays %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.subtitle %} <span class="muted">— {{ post.subtitle }}</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+{% if shorts.size > 0 %}
+<section class="list">
+  <h2>Short posts</h2>
+  <ul>
+    {% for post in shorts %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="muted">({{ post.date | date: "%Y" }})</span></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+<section class="list">
+  <h2>Elsewhere</h2>
+  <ul>
+    <li><a href="https://github.com/ehnruiz">GitHub</a></li>
+  </ul>
+</section>
