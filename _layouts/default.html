@@ -6,8 +6,8 @@
   {%- assign page_title = page.title | default: site.title -%}
   {%- if page.url == '/' -%}{%- assign page_title = site.title -%}{%- endif -%}
   {%- assign page_description = page.description | default: page.subtitle | default: site.description -%}
-  {%- assign page_image = page.image | default: '/assets/cards/site-card.png' | absolute_url -%}
-  <title>{% if page.url != '/' %}{{ page_title }} — {% endif %}{{ site.title }}</title>
+  {%- assign page_image = page.image | default: '/assets/cards/site-card-2.png' | absolute_url -%}
+  <title>{% if page.url != '/' %}{{ page_title }} — {{ site.title }}{% else %}{{ site.title }} — Essays on building software at the frontier{% endif %}</title>
   <meta content="{{ page_description | strip_html | strip_newlines | escape }}" name="description">
   <meta content="{{ page_title | escape }}" property="og:title">
   <meta content="{{ page_description | strip_html | strip_newlines | escape }}" property="og:description">

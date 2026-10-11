@@ -18,14 +18,20 @@
   .title { font-size: 92px; line-height: 1.04; font-weight: 600; letter-spacing: -0.015em; max-width: 1000px; text-wrap: balance; }
   .title.long { font-size: 72px; }
   .title.verylong { font-size: 58px; }
+  .mark { height: 108px; width: 108px; object-fit: contain; align-self: flex-start; margin-bottom: 28px; display: none; }
+  .mark[src] { display: block; }
+  .mark[src] + .rule { display: none; }
+  .cta { position: absolute; right: 84px; bottom: 56px; font-size: 26px; font-style: italic; color: #4a4741; }
 </style>
 </head>
 <body>
 <div class="card" id="card">
+  <img class="mark" id="mark" alt="">
   <div class="rule"></div>
   <div class="title" id="title" hidden></div>
   <div class="name" id="name"></div>
   <div class="tagline" id="tagline" hidden></div>
+  <div class="cta" id="cta"></div>
 </div>
 </body>
 </html>
