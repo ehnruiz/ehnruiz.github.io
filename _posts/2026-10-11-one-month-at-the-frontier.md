@@ -3,6 +3,7 @@ title: One Month at the Frontier
 subtitle: What thirty days of building X-Ray taught me about pace, quality and leading with AI
 description: One month after the first pull request, a look at what shipped, what I got wrong, and why a medical device company's web team should want to stand at the frontier of AI engineering.
 kind: essay
+image: /assets/cards/one-month-at-the-frontier.png
 ---
 
 <p class="lede">A month ago, X-Ray was an empty repository and a conviction. The conviction was that a website carrying Arthrex's name should be held to the same standard as everything else that carries it, and that holding it there should take minutes, not meetings. Thirty days later it audits every one of our microsites every Sunday and any of them on demand, scores them, tells their owners what to fix and how, and answers questions about them from a chat window. This essay is about how that happened, what it cost, what we got wrong, and why I think it matters well beyond one tool.</p>

@@ -13,6 +13,13 @@ kind: essay        # essay (long, with a contents sidebar) or short
 ---
 ```
 
+Each essay has its own link-preview card. Make one with the title, then name it in the front matter as
+`image: /assets/cards/<slug>.png` (needs Playwright; see the note in `scripts/make-card.mjs`):
+
+```bash
+node scripts/make-card.mjs assets/cards/<slug>.png "Essay title"
+```
+
 Preview locally (optional):
 
 ```bash
