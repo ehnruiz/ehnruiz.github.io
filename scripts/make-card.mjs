@@ -1,5 +1,5 @@
 // Renders a 1200x630 Open Graph card, in the manner of the site: cream background, Newsreader, text bottom-left.
-//   node scripts/make-card.mjs assets/cards/site-card-2.png                       # site card: the name alone
+//   node scripts/make-card.mjs assets/cards/site-card-3.png                       # site card: the name alone
 //   node scripts/make-card.mjs assets/cards/<slug>.png "Essay title"             # essay card: title, name beneath
 //   node scripts/make-card.mjs assets/cards/<slug>.png "Essay title" scripts/brand/xray-mark-navy-1024.png
 //                                                                                # ... with a mark above the title
@@ -20,7 +20,7 @@ await page.goto(pathToFileURL(path.resolve('scripts/card.html')).href);
 await page.evaluate(({ title, mark }) => {
   document.getElementById('name').textContent = 'Emmanuel Ruiz';
   if (mark) document.getElementById('mark').src = mark;
-  document.getElementById('cta').textContent = title ? 'Read the essay at mister99.dev' : 'Read the essays at mister99.dev';
+  document.getElementById('cta').textContent = title ? 'Read the essay → mister99.dev' : 'Read the essays → mister99.dev';
   if (title) {
     document.getElementById('card').classList.add('essay');
     const t = document.getElementById('title');
