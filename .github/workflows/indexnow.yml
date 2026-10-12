@@ -1,0 +1,32 @@
+# Tell the IndexNow engines (Bing, Yandex, Naver, Seznam, Yep) which pages changed, right after GitHub Pages
+# has deployed a push to master. The key file at the site root proves the submission comes from the site owner.
+name: IndexNow
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  submit:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Submit every URL in the sitemap
+        env:
+          HOST: mister99.dev
+          KEY: a9fef2b9b3091d9797baad9b9de8549f
+        run: |
+          set -euo pipefail
+          urls=$(curl -sSf "https://$HOST/sitemap.xml" | grep -o '<loc>[^<]*</loc>' | sed 's/<[^>]*>//g')
+          echo "$urls"
+          list=$(printf '%s\n' "$urls" | python3 -c 'import json,sys; print(json.dumps([u for u in sys.stdin.read().split() if u]))')
+          body=$(printf '{"host":"%s","key":"%s","keyLocation":"https://%s/%s.txt","urlList":%s}' "$HOST" "$KEY" "$HOST" "$KEY" "$list")
+          code=$(curl -sS -o /tmp/resp -w '%{http_code}' -X POST https://api.indexnow.org/IndexNow -H 'Content-Type: application/json; charset=utf-8' --data "$body")
+          echo "IndexNow answered $code"; cat /tmp/resp || true
+          # 200 = submitted, 202 = accepted pending key validation; anything else is a real failure.
+          case "$code" in 200|202) ;; *) exit 1;; esac

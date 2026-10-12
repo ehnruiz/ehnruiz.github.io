@@ -24,7 +24,8 @@ node scripts/make-card.mjs assets/cards/<slug>.png "Essay title"
 Crawler-facing files: `robots.txt` (explicit allow, AI crawlers named), `llms.txt` and `llms-full.txt`
 (built by Jekyll from the posts; the full text includes each post's Markdown through `include_relative`),
 `sitemap.xml` and `feed.xml` from the Jekyll plugins, and JSON-LD on every page from `_includes/jsonld.html`.
-The `scripts/` and `audits/` folders are excluded from the build.
+The `scripts/` and `audits/` folders are excluded from the build. The 32-character `.txt` file at the root is the
+IndexNow key; `.github/workflows/indexnow.yml` submits every sitemap URL to the IndexNow engines after each Pages deploy.
 
 Preview locally (optional):
 
