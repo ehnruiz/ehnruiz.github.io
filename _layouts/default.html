@@ -2,7 +2,6 @@
 <html lang="{{ site.lang | default: 'en' }}">
 <head>
   <meta charset="utf-8">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   {%- assign page_title = page.title | default: site.title -%}
   {%- if page.url == '/' -%}{%- assign page_title = site.title -%}{%- endif -%}
   {%- assign page_description = page.description | default: page.subtitle | default: site.description -%}
@@ -39,17 +38,18 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap">
+  <link rel="preload" href="{{ '/assets/fonts/newsreader-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link href="{{ '/assets/favicon.png' | relative_url }}" rel="shortcut icon" type="image/png">
   <link href="{{ '/assets/webclip.png' | relative_url }}" rel="apple-touch-icon">
+  <link rel="alternate" type="text/plain" href="{{ '/llms.txt' | relative_url }}" title="llms.txt">
   {% feed_meta %}
+  {% include jsonld.html %}
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="masthead">
-    <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    {% if page.url == '/' %}<h1 class="site-name">{{ site.title }}</h1>{% else %}<a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>{% endif %}
     <button class="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
       <span class="knob"></span>
     </button>
@@ -60,6 +60,6 @@
   <footer class="colophon">
     <p>© {{ site.time | date: '%Y' }} {{ site.author.name }} · <a href="https://github.com/{{ site.author.github }}">GitHub</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
   </footer>
-  <script src="{{ '/assets/site.js' | relative_url }}"></script>
+  <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
 </body>
 </html>

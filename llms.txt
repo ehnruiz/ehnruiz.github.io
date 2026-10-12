@@ -1,0 +1,37 @@
+---
+permalink: /llms.txt
+---
+# {{ site.title }}
+
+> {{ site.description }}
+
+{{ site.author.name }} is a {{ site.author.job_title | downcase }} at {{ site.author.employer }}. This site holds long-form essays on building software with AI agents at the frontier: pace, quality, and what gets learned on the way. Everything is written by the author and may be quoted with attribution and a link.
+
+## Essays
+
+{% assign essays = site.posts | where: "kind", "essay" -%}
+{% for post in essays -%}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description | default: post.subtitle }} ({{ post.date | date: "%B %Y" }})
+{% endfor %}
+{%- assign shorts = site.posts | where: "kind", "short" -%}
+{% if shorts.size > 0 %}
+## Short posts
+
+{% for post in shorts -%}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description | default: post.subtitle }} ({{ post.date | date: "%B %Y" }})
+{% endfor %}
+{% endif %}
+## Full text
+
+- [llms-full.txt]({{ '/llms-full.txt' | absolute_url }}): every essay in full, as Markdown
+- [feed.xml]({{ '/feed.xml' | absolute_url }}): Atom feed
+- [sitemap.xml]({{ '/sitemap.xml' | absolute_url }})
+
+## Author
+
+- Name: {{ site.author.name }}
+- Role: {{ site.author.job_title }}, {{ site.author.employer }}
+- Site: {{ site.url }}/
+{% for link in site.author.same_as -%}
+- {{ link }}
+{% endfor %}

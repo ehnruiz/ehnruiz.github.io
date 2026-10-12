@@ -1,0 +1,15 @@
+---
+permalink: /llms-full.txt
+---
+# {{ site.title }} — every essay in full
+
+> {{ site.description }}
+
+Each essay below is the Markdown source as published, headed by its metadata block. Canonical HTML pages are linked from llms.txt.
+
+{% for post in site.posts %}
+---
+<!-- {{ post.url | absolute_url }} -->
+{% include_relative {{ post.path }} %}
+
+{% endfor %}

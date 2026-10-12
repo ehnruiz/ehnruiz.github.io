@@ -21,6 +21,11 @@ needs a new file name to show up (needs Playwright; see the note in `scripts/mak
 node scripts/make-card.mjs assets/cards/<slug>.png "Essay title"
 ```
 
+Crawler-facing files: `robots.txt` (explicit allow, AI crawlers named), `llms.txt` and `llms-full.txt`
+(built by Jekyll from the posts; the full text includes each post's Markdown through `include_relative`),
+`sitemap.xml` and `feed.xml` from the Jekyll plugins, and JSON-LD on every page from `_includes/jsonld.html`.
+The `scripts/` and `audits/` folders are excluded from the build.
+
 Preview locally (optional):
 
 ```bash

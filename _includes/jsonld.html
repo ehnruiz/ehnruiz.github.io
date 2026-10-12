@@ -1,0 +1,50 @@
+{%- comment -%}
+Structured data: a Person and a WebSite on every page (so the author entity is consistent), and a
+BlogPosting on each essay. Strings go through jsonify so quotes and apostrophes are escaped.
+{%- endcomment -%}
+{%- assign person_id = site.url | append: '/#person' -%}
+{%- assign website_id = site.url | append: '/#website' -%}
+{%- assign page_image = page.image | default: '/assets/cards/site-card-3.png' | absolute_url -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ person_id | jsonify }},
+      "name": {{ site.author.name | jsonify }},
+      "url": {{ site.url | append: '/' | jsonify }},
+      "jobTitle": {{ site.author.job_title | jsonify }},
+      "worksFor": { "@type": "Organization", "name": {{ site.author.employer | jsonify }}, "url": {{ site.author.employer_url | jsonify }} },
+      "sameAs": {{ site.author.same_as | jsonify }}
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ website_id | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "url": {{ site.url | append: '/' | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "inLanguage": "en",
+      "author": { "@id": {{ person_id | jsonify }} },
+      "publisher": { "@id": {{ person_id | jsonify }} }
+    }{%- if page.layout == 'essay' -%},
+    {
+      "@type": "BlogPosting",
+      "@id": {{ page.url | absolute_url | append: '#article' | jsonify }},
+      "headline": {{ page.title | jsonify }},
+      "alternativeHeadline": {{ page.subtitle | jsonify }},
+      "description": {{ page.description | default: page.subtitle | jsonify }},
+      "url": {{ page.url | absolute_url | jsonify }},
+      "mainEntityOfPage": {{ page.url | absolute_url | jsonify }},
+      "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+      "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+      "image": {{ page_image | jsonify }},
+      "inLanguage": "en",
+      "wordCount": {{ content | strip_html | number_of_words }},
+      "author": { "@id": {{ person_id | jsonify }} },
+      "publisher": { "@id": {{ person_id | jsonify }} },
+      "isPartOf": { "@id": {{ website_id | jsonify }} }
+    }{%- endif %}
+  ]
+}
+</script>
