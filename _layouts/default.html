@@ -61,5 +61,7 @@
     <p>© {{ site.time | date: '%Y' }} {{ site.author.name }} · <a href="https://github.com/{{ site.author.github }}">GitHub</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
   </footer>
   <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
+  <!-- Cloudflare Web Analytics: cookieless, no personal data, so no consent banner. The token is public by design. -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "fb28604eb16540b6a40e3ed9aeb8c82c"}'></script>
 </body>
 </html>

@@ -17,7 +17,7 @@ image: /assets/cards/one-month-at-the-frontier-3.png
 <div><b>3×</b><span>faster CI, with nothing removed</span></div>
 </div>
 
-## The problem worth a month
+## What problem was worth a month?
 
 Arthrex's mission is Helping Surgeons Treat Their Patients Better®. Most of that happens in an operating room. Some of it happens on a screen, when a patient types "bunion surgery" into a search box at eleven at night, or a surgeon looks up a technique before a case. We publish dozens of sites for those moments, built by different teams on different platforms, and each of them is a promise. A page that renders an empty hero on a phone, a contact form whose Submit is a styled box that sends nothing, a product name spelled three ways, a copyright line two years stale: none of these is a catastrophe, and all of them break the promise a little.
 
@@ -35,7 +35,7 @@ That is what I mean by frontier engineering. Not using an assistant to type fast
 
 I want to embrace that pace, and I want Arthrex to. The technology that lets one engineer ship a quality gate in a month will let a team of ten ship things we have not yet imagined. The companies that lead in the next decade will be the ones whose engineers learned to lead agents early, made their mistakes early, and wrote down what they learned. I would rather we be one of those companies than read about them.
 
-## Quality is not the opposite of speed
+## Does speed have to cost quality?
 
 Here is the part I care about most, because it is the part people get wrong about AI-assisted engineering. The assumption is that speed is bought with quality: that two hundred pull requests must mean two hundred shortcuts. The month taught me the reverse. When the pace goes up, the only thing that keeps you standing is a bar that cannot be lowered quietly.
 
@@ -51,7 +51,7 @@ The same discipline applies to numbers. "Measured before it was written" became 
 
 None of this slowed us down. It is what let us go fast. An agent working inside a repository with a floor guard, a proof-of-test script and a review skill that names the paths where the stakes are higher is an agent that can be trusted with a ticket at ten at night. Quality was the enabler of the pace, not its price.
 
-## What I got wrong
+## What did I get wrong?
 
 A month is long enough to be wrong in instructive ways. These are the mistakes I keep coming back to, and what each one taught me.
 
@@ -69,7 +69,7 @@ A month is long enough to be wrong in instructive ways. These are the mistakes I
 
 **7. Write it down, or it did not happen.** X-Ray's changelog has a section no standard asks for: "Changed semantics," for changes that keep a name and a type while changing what the value means. Those break a consumer silently and no version number expresses them. The release notes say what was measured and how. Nobody asked for that rigor. It is what made four releases in a month safe to install.
 
-## Where innovation showed up
+## Where did the innovation show up?
 
 Some of what shipped was the plain work of a quality gate: broken links, missing alt text, overflow on a phone, console errors grouped so one bug is one finding. I am proud of that work. But the month also pushed into territory I did not expect to reach this year.
 
