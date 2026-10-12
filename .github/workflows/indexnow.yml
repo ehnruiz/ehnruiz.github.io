@@ -2,17 +2,17 @@
 # has deployed a push to master. The key file at the site root proves the submission comes from the site owner.
 name: IndexNow
 
+# GitHub's own "pages build and deployment" workflow is not a file in this repository, so workflow_run never
+# fires for it. Pages does record a deployment to the github-pages environment, and its status events do fire.
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  deployment_status:
   workflow_dispatch:
 
 permissions: {}
 
 jobs:
   submit:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'github-pages') }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
