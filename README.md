@@ -24,7 +24,7 @@ node scripts/make-card.mjs assets/cards/<slug>.png "Essay title"
 Crawler-facing files: `robots.txt` (explicit allow, AI crawlers named), `llms.txt` and `llms-full.txt`
 (built by Jekyll from the posts; the full text includes each post's Markdown through `include_relative`),
 `sitemap.xml` and `feed.xml` from the Jekyll plugins, and JSON-LD on every page from `_includes/jsonld.html`.
-The `scripts/` and `audits/` folders are excluded from the build. Traffic and Core Web Vitals come from
+The `scripts/` and `audits/` folders are excluded from the build. The latin font files are trimmed with fontTools (see the note in `_includes/style.css`). Traffic and Core Web Vitals come from
 Cloudflare Web Analytics (cookieless beacon in the layout; dashboard under the Cloudflare account). The 32-character `.txt` file at the root is the
 IndexNow key; `.github/workflows/indexnow.yml` submits every sitemap URL to the IndexNow engines after each Pages deploy.
 
