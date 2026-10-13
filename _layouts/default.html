@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   {%- assign page_title = page.title | default: site.title -%}
   {%- if page.url == '/' -%}{%- assign page_title = site.title -%}{%- endif -%}
+  {%- comment -%} seo_title is the search-facing title: the phrase people type, where the essay's own title is literary. It
+  replaces the browser title and the og/twitter titles; the H1, the card image and the JSON-LD headline keep page.title. {%- endcomment -%}
+  {%- assign search_title = page.seo_title | default: page_title -%}
   {%- assign page_description = page.description | default: page.subtitle | default: site.description -%}
   {%- assign page_image = page.image | default: '/assets/cards/site-card-3.png' | absolute_url -%}
-  <title>{% if page.url != '/' %}{{ page_title }} — {{ site.title }}{% else %}{{ site.title }} — Essays on building software at the frontier{% endif %}</title>
+  <title>{% if page.seo_title %}{{ page.seo_title }}{% elsif page.url != '/' %}{{ page_title }} — {{ site.title }}{% else %}{{ site.title }} — Essays on building software at the frontier{% endif %}</title>
   <meta content="{{ page_description | strip_html | strip_newlines | escape }}" name="description">
-  <meta content="{{ page_title | escape }}" property="og:title">
+  <meta content="{{ search_title | escape }}" property="og:title">
   <meta content="{{ page_description | strip_html | strip_newlines | escape }}" property="og:description">
   <meta content="{{ page_image }}" property="og:image">
   <meta content="1200" property="og:image:width">
   <meta content="630" property="og:image:height">
   <meta content="{{ page_title | escape }}" property="og:image:alt">
-  <meta content="{{ page_title | escape }}" name="twitter:title">
+  <meta content="{{ search_title | escape }}" name="twitter:title">
   <meta content="{{ page_description | strip_html | strip_newlines | escape }}" name="twitter:description">
   <meta content="{{ page_image }}" name="twitter:image">
   <meta property="og:type" content="{% if page.layout == 'essay' %}article{% else %}website{% endif %}">
