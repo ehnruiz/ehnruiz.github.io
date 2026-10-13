@@ -1,7 +1,8 @@
 ---
 title: One Month at the Frontier
 subtitle: What thirty days of building X-Ray taught me about pace, quality and leading with AI
-description: "One month of X-Ray: what shipped, what I got wrong, and why a medical device company's web team belongs at the AI frontier."
+description: "30 days leading AI agents: 205 merged pull requests, $4,211 at API list prices, about $20 each, and what I got wrong."
+seo_title: "What Claude Code Cost Me: $4,211 for 205 Pull Requests"
 kind: essay
 image: /assets/cards/one-month-at-the-frontier-3.png
 ---
@@ -35,13 +36,13 @@ That is what I mean by frontier engineering. Not using an assistant to type fast
 
 I want to embrace that pace, and I want Arthrex to. The technology that lets one engineer ship a quality gate in a month will let a team of ten ship things we have not yet imagined. The companies that lead in the next decade will be the ones whose engineers learned to lead agents early, made their mistakes early, and wrote down what they learned. I would rather we be one of those companies than read about them.
 
-## What did it cost?
+## How much does Claude Code cost per month, and per pull request?
 
 The Claude Code session logs on my machine price the month at $4,211 at published API rates. That covers every X-Ray session from the first commit on September 12 to October 12, across the main checkout and its worktrees, and comes to about $20 per merged pull request. It is the list price of the work, not the invoice. It also leaves things out: it does not count the other vendors' agents, or the time of the people who reviewed and approved releases.
 
 The same logs show about 180 hours in which an agent was working on X-Ray, counting any stretch with no gap longer than fifteen minutes. That is agent time, not my time, and much of it ran while I was reading a different diff. I did not measure my own hours to the same standard, so I will not quote a number for them. Against the honest estimate a month ago, a quarter and a small team, the comparison does not need exact salaries to be clear. But the return I care about most is not on the bill. A problem X-Ray finds this Sunday costs nothing to look for again next Sunday, and every Sunday after that.
 
-## Does speed have to cost quality?
+## Do AI coding agents lower code quality?
 
 Here is the part I care about most, because it is the part people get wrong about AI-assisted engineering. The assumption is that speed is bought with quality: that two hundred pull requests must mean two hundred shortcuts. The month taught me the reverse. When the pace goes up, the only thing that keeps you standing is a bar that cannot be lowered quietly.
 

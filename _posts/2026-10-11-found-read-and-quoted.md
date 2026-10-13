@@ -1,7 +1,8 @@
 ---
 title: Found, Read and Quoted
 subtitle: Auditing my own site with X-Ray, and what it took to go from 84 to 100
-description: "A quality gate turned on its author's site: the baseline, the fixes, the registrations, and what GitHub Pages cannot do."
+description: "My quality gate scored my own site 84. llms.txt, JSON-LD and IndexNow took it to 100. Here is what GitHub Pages cannot fix."
+seo_title: "llms.txt, JSON-LD and IndexNow: My Site From 84 to 100"
 kind: essay
 image: /assets/cards/found-read-and-quoted.png
 ---
@@ -33,7 +34,7 @@ I want to sit with that for a second, because it is the whole case for the tool.
 
 The findings on the two real pages were the familiar list: no structured data, no llms.txt, a robots.txt with no User-agent block, no H1 on the home page, a script loading synchronously, and a render-blocking font stylesheet from a third party. Also sixteen failures I could ignore, because they were the footer rules of the microsite portfolio X-Ray was built for: a privacy portal link, a legal notice, a cookie-settings control, a named medical reviewer. A personal essay site has none of those, and should not. Which is its own lesson: a quality gate carries the expectations of the estate it was built for, and the first thing to do on a new kind of site is read the failures and sort them into "true" and "not for me".
 
-## What changed between 84 and 100?
+## What does a site need to be found, read and quoted by AI search?
 
 Seven things, in one commit.
 
@@ -67,11 +68,11 @@ Security headers. There is no way to set a Content-Security-Policy, a Referrer-P
 
 And a measurement caveat I owe the reader. The baseline's one bad Lighthouse number, 62 on mobile for the home page, came from a 14-second response for the root document. Two re-runs from Chrome itself measured the server at 40 and 130 milliseconds, and the machine running the audit was seeing multi-second responses from every host that evening. The honest baseline was somewhere in the high seventies, with the font stylesheet as the real cause. A number is only as good as the network it was measured on, and the report should say which network that was.
 
-## What does it take to be found?
+## How do you get a new site indexed by Google, Bing and AI search?
 
 A perfect audit score is a site that deserves to be found. Being found is a separate job, and it is mostly registration.
 
-Google Search Console wanted proof of ownership. It offered to connect directly to my DNS provider; I declined and added one TXT record by hand instead, because a verification record is cheaper than a standing authorisation. Verified, sitemap submitted, reports in a day.
+Google Search Console wanted proof of ownership. It offered to connect directly to my DNS provider; I declined and added one TXT record by hand instead, because a verification record is cheaper than a standing authorization. Verified, sitemap submitted, reports in a day.
 
 Bing Webmaster Tools can import a verified Google property in one click, which I did, then submitted the sitemap and both pages for immediate crawl.
 
