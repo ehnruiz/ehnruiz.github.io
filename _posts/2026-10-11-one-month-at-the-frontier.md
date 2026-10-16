@@ -1,28 +1,28 @@
 ---
 title: One Month at the Frontier
 subtitle: What thirty days of building X-Ray taught me about pace, quality and leading with AI
-description: "30 days leading AI agents: 205 merged pull requests, $4,211 at API list prices, about $20 each, and what I got wrong."
-seo_title: "What Claude Code Cost Me: $4,211 for 205 Pull Requests"
+description: "30 days leading AI agents on a website quality gate: 205 merged pull requests, 58 checks, 1,351 tests, and what I got wrong."
+seo_title: "205 Pull Requests in 30 Days with AI Coding Agents"
 kind: essay
 image: /assets/cards/one-month-at-the-frontier-3.png
 ---
 
-<p class="lede">A month ago, X-Ray was an empty repository and a conviction. The conviction was that a website carrying Arthrex's name should be held to the same standard as everything else that carries it, and that holding it there should take minutes, not meetings. Thirty days later it audits every one of our microsites every Sunday and any of them on demand, scores them, tells their owners what to fix and how, and answers questions about them from a chat window. This essay is about how that happened, what it cost, what we got wrong, and why I think it matters well beyond one tool.</p>
+<p class="lede">A month ago, X-Ray was an empty repository and a conviction. The conviction was that a family of websites should be held to the same standard as everything else a company puts its name on, and that holding them there should take minutes, not meetings. Thirty days later it audits every site each week and any of them on demand, scores them, tells their owners what to fix and how, and answers questions about them from a chat window. This essay is about how that happened, what we got wrong, and why I think it matters well beyond one tool.</p>
 
 <div class="numbers">
 <div><b>205</b><span>pull requests merged</span></div>
 <div><b>4</b><span>releases, 0.2 to 2.1</span></div>
 <div><b>58</b><span>checks in nine categories</span></div>
-<div><b>83</b><span>sites in the portfolio</span></div>
+<div><b>180</b><span>hours of agent time</span></div>
 <div><b>1,351</b><span>unit tests, all green</span></div>
 <div><b>3×</b><span>faster CI, with nothing removed</span></div>
 </div>
 
 ## What problem was worth a month?
 
-Arthrex's mission is Helping Surgeons Treat Their Patients Better®. Most of that happens in an operating room. Some of it happens on a screen, when a patient types "bunion surgery" into a search box at eleven at night, or a surgeon looks up a technique before a case. We publish dozens of sites for those moments, built by different teams on different platforms, and each of them is a promise. A page that renders an empty hero on a phone, a contact form whose Submit is a styled box that sends nothing, a product name spelled three ways, a copyright line two years stale: none of these is a catastrophe, and all of them break the promise a little.
+Every website is a promise to the person reading it. Someone searches for help late at night, or a professional looks something up before an important meeting, and a page answers. Sites like these are often built by different teams on different platforms, and each of them carries the same promise. A page that renders an empty hero on a phone, a form whose Submit button sends nothing, a product name spelled three ways, a copyright line two years stale: none of these is a catastrophe, and all of them break the promise a little.
 
-Before X-Ray, we found those things the way everyone does, which is to say someone noticed, or someone did not. The question I wanted to answer was simple. What would it take for every site to be checked, every week and whenever someone asks, by something that never gets bored, never skips the long pages, and never pretends it looked when it did not?
+Before X-Ray, problems like these were found the way they usually are, which is to say someone noticed, or someone did not. The question I wanted to answer was simple. What would it take for every site to be checked, every week and whenever someone asks, by something that never gets bored, never skips the long pages, and never pretends it looked when it did not?
 
 The honest answer, a month ago, would have been "a quarter, a small team and a lot of patience." It took a month, mostly me, and a team of AI agents I learned to lead along the way.
 
@@ -30,17 +30,17 @@ The honest answer, a month ago, would have been "a quarter, a small team and a l
 
 The first thing I want to say about the pace is that it was not an accident, and it was not a sprint. Two hundred merged pull requests in thirty days sounds like a heroic month. It was not. It was an ordinary month in which the unit of work shrank until it fit inside an hour, and the tooling made every hour count.
 
-The second thing is that the pace came from working with agents, not from working harder. I did not write most of X-Ray's code. I wrote the tickets, the rules, the acceptance criteria and the review standards, and I read every diff. The agents, several of them, from more than one vendor, did the scouting, the implementing, the testing and the first pass of review. By the end of the month the repository carried a routing table: which kind of work goes to which tier of model, when a cheap agent should try first, when a failed ticket escalates, and which decisions never leave the human. The gate, the network guard, the secrets, the data contract, severity calls, the final answer: those stay with me.
+The second thing is that the pace came from working with agents, not from working harder. I wrote the tickets, the rules, the acceptance criteria and the review standards, and I read every diff. Agents from more than one vendor did much of the scouting, the implementing, the testing and the first pass of review. By the end of the month the repository carried a routing table: which kind of work goes to which tier of model, when a cheap agent should try first, when a failed ticket escalates, and which decisions never leave the human. The gate, the network guard, the secrets, the data contract, severity calls, the final answer: those stay with me.
 
 That is what I mean by frontier engineering. Not using an assistant to type faster, but restructuring the work so that judgment is the scarce input and everything else is delegated, verified and merged. It changes what a senior engineer does all day. Less typing, more deciding. Less "how do I build this," more "what must be true when it is built, and how will I know."
 
-I want to embrace that pace, and I want Arthrex to. The technology that lets one engineer ship a quality gate in a month will let a team of ten ship things we have not yet imagined. The companies that lead in the next decade will be the ones whose engineers learned to lead agents early, made their mistakes early, and wrote down what they learned. I would rather we be one of those companies than read about them.
+I want to embrace that pace, and I want the teams I work with to. The technology that lets one engineer ship a quality gate in a month will let a team of ten ship things we have not yet imagined. The companies that lead in the next decade will be the ones whose engineers learned to lead agents early, made their mistakes early, and wrote down what they learned.
 
-## How much does Claude Code cost per month, and per pull request?
+## What does a month with AI coding agents take?
 
-The Claude Code session logs on my machine price the month at $4,211 at published API rates. That covers every X-Ray session from the first commit on September 12 to October 12, across the main checkout and its worktrees, and comes to about $20 per merged pull request. It is the list price of the work, not the invoice. It also leaves things out: it does not count the other vendors' agents, or the time of the people who reviewed and approved releases.
+The session logs on my machine show about 180 hours in which an agent was working on X-Ray, counting any stretch with no gap longer than fifteen minutes. That is agent time, not my time, and much of it ran while I was reading a different diff. I did not measure my own hours to the same standard, so I will not quote a number for them.
 
-The same logs show about 180 hours in which an agent was working on X-Ray, counting any stretch with no gap longer than fifteen minutes. That is agent time, not my time, and much of it ran while I was reading a different diff. I did not measure my own hours to the same standard, so I will not quote a number for them. Against the honest estimate a month ago, a quarter and a small team, the comparison does not need exact salaries to be clear. But the return I care about most is not on the bill. A problem X-Ray finds this Sunday costs nothing to look for again next Sunday, and every Sunday after that.
+Against the honest estimate a month ago, a quarter and a small team, the comparison does not need exact figures to be clear. But the return I care about most is not on any bill. A problem X-Ray finds this Sunday costs nothing to look for again next Sunday, and every Sunday after that.
 
 ## Do AI coding agents lower code quality?
 
@@ -66,23 +66,21 @@ A month is long enough to be wrong in instructive ways. These are the mistakes I
 
 **2. Infrastructure has its own calendar.** Run history lived in a cache that is deleted after seven days unused. The audit ran every seven days. One late Sunday and all history was gone. It now lives in a kept artifact. Read the retention policy before you rely on the storage.
 
-**3. The div that looked like a button.** A contact form on a live site had a Submit that was a styled box, not a button. It looked fine, took your details and sent nothing. No human reviewer caught it, because to a human it looked exactly like a form. X-Ray now asks of every form whether it can be sent at all.
+**3. A thousand-line file is a smell you can lint for.** Three files had grown past a thousand lines: fourteen checks in one, nine in another, every in-page function in a third. Five pull requests split them into one check or one concern per module, generated by line ranges and verified that every old line landed exactly once, with the same test count before and after each move. Then a lint rule made the next one impossible: error over a thousand lines of code, warning over five hundred. Comments do not count, because this codebase explains its decisions at length, and should.
 
-**4. A thousand-line file is a smell you can lint for.** Three files had grown past a thousand lines: fourteen checks in one, nine in another, every in-page function in a third. Five pull requests split them into one check or one concern per module, generated by line ranges and verified that every old line landed exactly once, with the same test count before and after each move. Then a lint rule made the next one impossible: error over a thousand lines of code, warning over five hundred. Comments do not count, because this codebase explains its decisions at length, and should.
+**4. CI speed is a feature of the review loop.** Our checks went from 334 seconds to 107 without removing a test, by running the pure checks without a browser container, splitting the integration tests four ways and crawling each fixture file once rather than per test. When review takes two minutes instead of six, people review more and merge smaller.
 
-**5. CI speed is a feature of the review loop.** Our checks went from 334 seconds to 107 without removing a test, by running the pure checks without a browser container, splitting the integration tests four ways and crawling each fixture file once rather than per test. When review takes two minutes instead of six, people review more and merge smaller.
+**5. Agents need the same things good engineers need.** Clear navigation pointers. Automated checks that catch mechanical mistakes so review can spend its attention on judgment. Written standards for the things that are judgment. A way to hand work from one session to the next. The month's most valuable artifacts may not be checks at all, but the skills, hooks and review rules that turned a repository into an environment where any agent, or any new teammate, can do good work on day one.
 
-**6. Agents need the same things good engineers need.** Clear navigation pointers. Automated checks that catch mechanical mistakes so review can spend its attention on judgment. Written standards for the things that are judgment. A way to hand work from one session to the next. The month's most valuable artifacts may not be checks at all, but the skills, hooks and review rules that turned a repository into an environment where any agent, or any new teammate, can do good work on day one.
-
-**7. Write it down, or it did not happen.** X-Ray's changelog has a section no standard asks for: "Changed semantics," for changes that keep a name and a type while changing what the value means. Those break a consumer silently and no version number expresses them. The release notes say what was measured and how. Nobody asked for that rigor. It is what made four releases in a month safe to install.
+**6. Write it down, or it did not happen.** X-Ray's changelog has a section no standard asks for: "Changed semantics," for changes that keep a name and a type while changing what the value means. Those break a consumer silently and no version number expresses them. The release notes say what was measured and how. Nobody asked for that rigor. It is what made four releases in a month safe to install.
 
 ## Where did the innovation show up?
 
 Some of what shipped was the plain work of a quality gate: broken links, missing alt text, overflow on a phone, console errors grouped so one bug is one finding. I am proud of that work. But the month also pushed into territory I did not expect to reach this year.
 
-**Readiness for AI answers.** The crawlers that feed ChatGPT, Claude, Perplexity and Common Crawl do not run JavaScript. X-Ray measures how much of each page's visible text is already in the HTML the server sends, by cutting the text into five-word runs and asking how many of them a crawler would receive. It checks whether those crawlers are allowed in, whether structured data parses and matches the type it claims, and whether a page has the question headings, visible sources and named medical reviewer that answer engines reward. Then it goes further and asks the answer engines themselves whether they cite the site.
+**Readiness for AI answers.** The crawlers that feed ChatGPT, Claude, Perplexity and Common Crawl do not run JavaScript. X-Ray measures how much of each page's visible text is already in the HTML the server sends, by cutting the text into five-word runs and asking how many of them a crawler would receive. It checks whether those crawlers are allowed in, whether structured data parses and matches the type it claims, and whether a page has the question headings, visible sources and named expert reviewer that answer engines reward. Then it goes further and asks the answer engines themselves whether they cite the site.
 
-**Claims and fair balance.** A medical device company cannot say whatever it likes about a product. X-Ray loads a register of approved claims and safety statements, classifies every rendered sentence as registered, drifted or unregistered, and measures, per screen size, how far the safety information sits from each claim, drawing both on a screenshot. It can draft a register from what the live pages already say, for a person to approve.
+**Claims and fair balance.** In a regulated industry, a company cannot say whatever it likes about a product. X-Ray loads a register of approved claims and safety statements, classifies every rendered sentence as registered, drifted or unregistered, and measures, per screen size, how far the safety information sits from each claim, drawing both on a screenshot. It can draft a register from what the live pages already say, for a person to approve.
 
 **A judgment stage.** After the deterministic checks run, a pinned model is asked closed-set questions about the findings that are hardest to decide by rule, such as whether an unknown word is a typo or a real term. It runs in shadow mode, its answers are recorded as an evaluation baseline, and the report shows what the model caught. The rule is that the model advises and never decides silently.
 
@@ -90,22 +88,22 @@ Some of what shipped was the plain work of a quality gate: broken links, missing
 
 None of these were on a roadmap in September. They happened because the pace left room for them, and because the quality bar meant each one could ship the day it was ready.
 
-## Making People Better
+## Who is it for?
 
-Arthrex's core value is Making People Better, and it stands on three pillars: Making Patients Better, Making Employees Better, Making Communities Better. I did not set out to write an essay about a crawler that maps onto them, but a month in, it does.
+I did not set out to write about who a crawler serves, but a month in, the answer has three parts.
 
-**Patients** are the people on the other side of every page we audit. A page they can read on a phone, in their language, with the safety information next to the claim and a form that actually sends, is a small act of care. Checking it every week, and again the moment someone asks, is how a value becomes a habit.
+**Readers** are the people on the other side of every page we audit. A page they can read on a phone, in their language, with the safety information next to the claim and a form that actually sends, is a small act of care. Checking it every week, and again the moment someone asks, is how a value becomes a habit.
 
-**Employees** are the site owners, business analysts and content editors who used to find out about problems from a colleague or a customer. Now they get a card in their channel with a score, a list ordered by how many real visitors each problem affects, and a guide to the fix. The agents did not replace anyone's judgment. They freed it from the tedious part.
+**Site owners** are the business analysts, content editors and product teams who used to find out about problems from a colleague or a customer. Now they get a card in their channel with a score, a list ordered by how many real visitors each problem affects, and a guide to the fix. The agents did not replace anyone's judgment. They freed it from the tedious part.
 
-**Communities** is the one I think about most. The engineering community at Arthrex, and the wider one of people building with AI in regulated industries, needs working examples of how to do this well: with evidence, with a floor that cannot be lowered quietly, with the human owning the decisions that matter. I would like X-Ray, and this site, to be one of those examples. That is also why this essay exists.
+**Builders** is the one I think about most. The engineers around me, and the wider community of people building with AI in regulated industries, need working examples of how to do this well: with evidence, with a floor that cannot be lowered quietly, with the human owning the decisions that matter. I would like X-Ray, and this site, to be one of those examples. That is also why this essay exists.
 
-And underneath all three is the word the company uses for its own standard: uncompromising quality. I used to think that word and "pace" pulled in opposite directions. The month convinced me they are the same direction, if you build the floor first.
+Underneath all three is a standard of quality that does not bend. I used to think quality and pace pulled in opposite directions. The month convinced me they are the same direction, if you build the floor first.
 
 ## The next month
 
 X-Ray's second release of the month was called "found, read and quoted," because that is what it now asks of a site: not only does it work, but can it be found, can it be read by the machines that increasingly answer on our behalf, and is it quoted accurately. The next month asks the same of the way we work.
 
-I want more of our engineers leading agents, with the routing tables and floor guards to make that safe. I want the review loop measured, so we know what the agents catch and what only a person does. I want the learnings written down here, in public, where they can be argued with. And I want Arthrex to be known, among the people who build at the frontier, as a place that got there early and brought its standards with it.
+I want more engineers leading agents, with the routing tables and floor guards to make that safe. I want the review loop measured, so we know what the agents catch and what only a person does. I want the learnings written down here, in public, where they can be argued with.
 
 A month ago the repository was empty. It is not any more. Neither is the argument for what comes next.
