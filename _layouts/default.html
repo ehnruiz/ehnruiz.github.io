@@ -8,7 +8,7 @@
   replaces the browser title and the og/twitter titles; the H1, the card image and the JSON-LD headline keep page.title. {%- endcomment -%}
   {%- assign search_title = page.seo_title | default: page_title -%}
   {%- assign page_description = page.description | default: page.subtitle | default: site.description -%}
-  {%- assign page_image = page.image | default: '/assets/cards/site-card-3.png' | absolute_url -%}
+  {%- assign page_image = page.image | default: '/assets/cards/site-card-4.png' | absolute_url -%}
   <title>{% if page.seo_title %}{{ page.seo_title }}{% elsif page.url != '/' %}{{ page_title }} — {{ site.title }}{% else %}{{ site.title }} — Essays on building software at the frontier{% endif %}</title>
   <meta content="{{ page_description | strip_html | strip_newlines | escape }}" name="description">
   <meta content="{{ search_title | escape }}" property="og:title">

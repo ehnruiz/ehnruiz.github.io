@@ -1,5 +1,5 @@
 // Renders a 1200x630 Open Graph card, in the manner of the site: cream background, Newsreader, text bottom-left.
-//   node scripts/make-card.mjs assets/cards/site-card-3.png                       # site card: the name alone
+//   node scripts/make-card.mjs assets/cards/site-card-4.png                       # site card: the name alone
 //   node scripts/make-card.mjs assets/cards/<slug>.png "Essay title"             # essay card: title, name beneath
 //   node scripts/make-card.mjs assets/cards/<slug>.png "Essay title" scripts/brand/xray-mark-navy-1024.png
 //                                                                                # ... with a mark above the title
@@ -28,7 +28,7 @@ await page.evaluate(({ title, mark }) => {
     if (title.length > 44) t.classList.add('verylong'); else if (title.length > 26) t.classList.add('long');
   } else {
     const tag = document.getElementById('tagline');
-    tag.textContent = 'Essays on building software at the frontier, from inside Arthrex.'; tag.hidden = false;
+    tag.textContent = 'Essays on building software at the frontier, with AI agents on the team.'; tag.hidden = false;
   }
 }, { title, mark: mark ? pathToFileURL(path.resolve(mark)).href : '' });
 await page.evaluate(() => document.fonts.ready);
