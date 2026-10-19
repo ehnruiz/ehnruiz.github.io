@@ -21,6 +21,10 @@ permalink: /llms.txt
 - [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description | default: post.subtitle }} ({{ post.date | date: "%B %Y" }})
 {% endfor %}
 {% endif %}
+## Code
+
+- [claude-skills](https://github.com/ehnruiz/claude-skills): Claude Code skills, subagents and hooks from the work these essays describe (MIT)
+
 ## Full text
 
 - [llms-full.txt]({{ '/llms-full.txt' | absolute_url }}): every essay in full, as Markdown

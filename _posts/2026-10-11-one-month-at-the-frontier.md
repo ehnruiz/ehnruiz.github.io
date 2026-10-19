@@ -58,6 +58,8 @@ The same discipline applies to numbers. "Measured before it was written" became 
 
 None of this slowed us down. It is what let us go fast. An agent working inside a repository with a floor guard, a proof-of-test script and a review skill that names the paths where the stakes are higher is an agent that can be trusted with a ticket at ten at night. Quality was the enabler of the pace, not its price.
 
+I have since rewritten the skills, subagents and hooks behind this way of working for public use. They are in [ehnruiz/claude-skills](https://github.com/ehnruiz/claude-skills), including the routing table and the proof that a test fails without its fix.
+
 ## What did I get wrong?
 
 A month is long enough to be wrong in instructive ways. These are the mistakes I keep coming back to, and what each one taught me.
