@@ -34,6 +34,8 @@ I want to sit with that for a second, because it is the whole case for the tool.
 
 The findings on the two real pages were the familiar list: no structured data, no llms.txt, a robots.txt with no User-agent block, no H1 on the home page, a script loading synchronously, and a render-blocking font stylesheet from a third party. Also sixteen failures I could ignore, because they were the footer rules of the microsite portfolio X-Ray was built for: a privacy portal link, a legal notice, a cookie-settings control, a named medical reviewer. A personal essay site has none of those, and should not. Which is its own lesson: a quality gate carries the expectations of the estate it was built for, and the first thing to do on a new kind of site is read the failures and sort them into "true" and "not for me".
 
+![Four-panel stick-figure comic. 1: I say "Let's audit my own site" and point X-Ray at a browser window showing mister99.dev. 2: The Site Health Score reads 84. I say "...84?" 3: Under "scripts/ (in the sitemap)", two files, card.html and icon.html, are flagged in red: 55 of 67 findings. I hold my head and say "I published what?" 4: A box reads "+ one line of config", plus structured data, llms.txt, crawler rules and a real H1. The score is 100 and my arms are up. Caption: A human reviews what they built, not what the build produced.](/assets/comics/84-to-100.png){: width="1200" height="1032" loading="lazy" decoding="async"}
+
 ## What does a site need to be found, read and quoted by AI search?
 
 Seven things, in one commit.
