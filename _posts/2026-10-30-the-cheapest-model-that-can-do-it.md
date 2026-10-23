@@ -105,6 +105,8 @@ That is two failures, so the ticket went up.
 
 **7:47.** The Opus implementer fixed the four items I sent from the fourth review, and the pull request opened. The review bot on the repository raised seven more over three rounds, and the implementer fixed each. I declined the bot's fourth round by decision. I ran the matcher against a live site's text and a real register, and it merged at 10:27.
 
+![Four-panel stick-figure comic. 1: The Sonnet implementer says "All fixed." A box reads: review 2, 10 new, round 1 had 11. 2: I say "Two strikes. Up a tier." Box: same ticket, to Opus, plus 11 decisions. 3: The Opus implementer says "All fixed." Box: review 3, 12 new, edge cases. 4: Opus says "All fixed. Really." Box: review 4, 9 new, 1 from my fix. Caption: "All fixed" is a claim until the next review.](/assets/comics/all-fixed.png){: width="1200" height="1032" loading="lazy" decoding="async"}
+
 Eleven, ten, twelve, nine. The stronger tier did not bring the count down, and its own fix added a bug. The kind of finding changed. The first two rounds were mostly patterns firing where they should not and text normalization bugs. The last two were edge cases, gaps against the ticket, and that one regression. The check that found all 42 was the same in every round: a reviewer that had not written the code, given the diff, the ticket and the standards, and asked for a file, a line and a failure scenario for each finding.
 
 The worker's report after round one said every finding was fixed. Round two found ten more.
