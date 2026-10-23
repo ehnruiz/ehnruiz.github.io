@@ -119,13 +119,16 @@ The most expensive reader in the system is the supervisor. Often the best routin
 
 Most of those supervisor tokens are cache reads, which cost much less than fresh input, and the supervisor ran on the strongest models, which cost more per token. So the 84% is a share of volume and says nothing exact about cost. Volume is what I can change, and most of it sits in the session.
 
-## What would I change?
+## What is already in place, and what is left?
 
-Three things.
+Reading the logs back against the repository, two of the fixes they point to were already there.
 
-- **Shorter supervising sessions.** The repository has a handoff skill that writes the state of a task to a file so a fresh session can pick it up. A fresh session that reads one handoff file starts lighter than an old one that carries every turn, so a task that changes phase should get a new session.
-- **Measure the supervisor per turn.** The script above counts workers. The next version counts what each supervisor turn reads, so a session that is getting heavy shows up early.
-- **Drop the tester, or give it a real job.** Zero runs on X-Ray in three weeks. Either the table says tests belong to the implementer, or the tester takes on proving that each new test fails without its fix, which is tests-only work.
+- **Handoffs between sessions.** A handoff skill writes the state of a task to a file. A hook shows the newest handoff to the next session when it starts, and another logs the branch and the changed files each time a session's context is compacted. Since October 17 the supervisor ends a session that still has work open by asking me to run `/handoff`. The repository has no rule yet to start a fresh session when a task changes phase, from building to review for example. That rule is the one that would cut into the 84%.
+- **Proving a regression test.** `npm run prove-test` checks that a new test fails on the code from before the fix. The test-first skill tells the implementer to run it, the reviewer runs it on every fix, and the tester's own file asks for it too. That explains the tester's zero. The tests-only work it was written for is part of the implementer's ticket and the reviewer's check. The open question is whether the table keeps a tester row for the rare ticket that is tests alone.
+
+One thing is not built at all.
+
+- **Measuring the supervisor.** `npm run loop-metrics` measures the review loop over merged pull requests: the agent's build, the bot's review, the fixes and the merge. It counts no tokens, and the script in this essay counts only workers. A version that counts what each supervisor turn reads would show a session getting heavy while it is still running.
 
 ## What can you reuse?
 
