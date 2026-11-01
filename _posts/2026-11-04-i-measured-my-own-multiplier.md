@@ -106,7 +106,7 @@ The plan is three lanes, sorted by how much a wrong fix would cost.
 
 The check decides the lane, in its own definition, and no model gets a vote. Each check already carries a line that tells a reader how to fix what it reports; the next field is which lane the fix belongs in, and the floor guard will refuse a check that does not say. A fix that fails verification on the next crawl moves its check up a lane. A lane assignment is a severity call, and severity calls never leave the human.
 
-The metric is days from finding to fix, per site, read from the run history. The first lane runs on the sites I own by the end of the year, and the number goes on the dashboard beside the score, because a score that improves on its own is the only one I will believe.
+The metric is days from finding to fix, per site, read from the run history. The first lane runs on the sites in the weekly run by Christmas, which is the gift I'd most like to give the people who have spent this fall reading X-Ray's findings: a run with fewer of them, because some were fixed before anyone had to read them. The number goes on the dashboard beside the score, because a score that improves on its own is the only one I will believe.
 
 ## What can you reuse?
 
