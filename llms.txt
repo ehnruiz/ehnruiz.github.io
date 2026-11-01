@@ -5,7 +5,7 @@ permalink: /llms.txt
 
 > {{ site.description }}
 
-{{ site.author.name }} is a {{ site.author.job_title | downcase }} at {{ site.author.employer }}. This site holds long-form essays on building software with AI agents at the frontier: pace, quality, and what gets learned on the way. Everything is written by the author and may be quoted with attribution and a link.
+{{ site.author.name }} is a {{ site.author.job_title | downcase }}. This site holds long-form essays on building software with AI agents at the frontier: pace, quality, and what gets learned on the way. Everything is written by the author and may be quoted with attribution and a link.
 
 ## Essays
 
@@ -34,7 +34,7 @@ permalink: /llms.txt
 ## Author
 
 - Name: {{ site.author.name }}
-- Role: {{ site.author.job_title }}, {{ site.author.employer }}
+- Role: {{ site.author.job_title }}
 - Site: {{ site.url }}/
 {% for link in site.author.same_as -%}
 - {{ link }}
