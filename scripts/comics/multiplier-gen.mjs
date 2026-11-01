@@ -59,7 +59,7 @@ agents.forEach(([name, x, y], i) => {
 });
 // the dark grid fills column by column, along the bottom
 p2 += grid(830, 330, 12, 9, 2, (c, r) => `fill d${Math.min(c, 5)}`);
-p2 += `<g class="pop pop2">` + t('big', 1058, 410, '15 a day') + `</g>`;
+p2 += `<g class="pop pop2">` + t('big', 1058, 410, '14 a day') + `</g>`;
 
 // ---- Panel 3: the two of me and the baselines ----
 let p3 = panel(3, 40, 460);
@@ -67,7 +67,7 @@ p3 += figure(120, 650, 'rest', 'me, 2019');
 p3 += figure(510, 650, 'point-left', 'me, 2026');
 p3 += t('say', 312, 538, 'Which number is true?');
 p3 += `<path class="ink" d="M190 552 L150 606"/>`;
-const rows = [['2019', '19x'], ['2024', '23x'], ['last year', '98x'], ['summer', '261x']];
+const rows = [['2019', '18x'], ['2024', '22x'], ['last year', '91x'], ['summer', '294x']];
 rows.forEach(([a, b], i) => {
   const y = 612 + i * 44;
   p3 += `<g class="pop r${i}">` + t('tag', 220, y, 'vs ' + a, 'start') + t('tag', 445, y, b, 'end') + `</g>`;
@@ -84,15 +84,15 @@ p4 += figure(760, 650, 'read', 'me, 2026');
 p4 += `<rect class="sheet" x="686" y="672" width="56" height="70" rx="3"/><path class="ink thin green" d="M696 690 H732 M696 702 H724"/><path class="ink thin redl" d="M696 716 H728"/>`;
 // the gate stamp
 p4 += `<rect class="box" x="880" y="600" width="230" height="110"/>` + t('code', 995, 642, 'FLOOR GUARD') + `<g class="pop stamp">` + t('stamp', 995, 690, 'PASS') + `</g>`;
-// the calendar: 52 squares filling
+// the calendar: 42 squares filling
 let cal = '';
-for (let i = 0; i < 52; i++) { const c = i % 13, r = Math.floor(i / 13); cal += `<rect class="sq fill cal c${Math.floor(i / 9)}" x="${880 + c * 17}" y="${730 + r * 17}" width="13" height="13" rx="2"/>`; }
+for (let i = 0; i < 42; i++) { const c = i % 14, r = Math.floor(i / 14); cal += `<rect class="sq fill cal c${Math.floor(i / 7)}" x="${880 + c * 17}" y="${730 + r * 17}" width="13" height="13" rx="2"/>`; }
 p4 += cal;
-p4 += `<g class="pop pop4">` + t('big', 995, 842, '52 of 52 days') + `</g>`;
+p4 += `<g class="pop pop4">` + t('big', 995, 842, '42 of 42 days') + `</g>`;
 
 const caption = t('cap', 600, 922, 'Same engineer. The work changed shape.') + t('foot', 1160, 1014, 'mister99.dev', 'end');
 
-const alt = 'Four-panel stick-figure comic. 1: Me in 2019 at a desk, typing. I say "One ticket. One day." A small contribution grid is mostly pale. Below: 0.8 PRs a day. 2: Me in 2026 pointing at four small agents labeled scout, builder, tester and reviewer, with arrows from me to each. I say "Tickets out." A grid fills dark green. Below: 15 a day. 3: Me in 2019 asks "Which number is true?" Me in 2026 points at a board: vs 2019, 19x; vs 2024, 23x; vs last year, 98x; vs summer, 261x. "All of them. Pick a baseline." 4: Me in 2026 reading a diff. I say "Diffs in. Every day." A box labeled FLOOR GUARD is stamped PASS, and a calendar of 52 squares fills in. Below: 52 of 52 days. Caption: Same engineer. The work changed shape.';
+const alt = 'Four-panel stick-figure comic. 1: Me in 2019 at a desk, typing. I say "One ticket. One day." A small contribution grid is mostly pale. Below: 0.8 PRs a day. 2: Me in 2026 pointing at four small agents labeled scout, builder, tester and reviewer, with arrows from me to each. I say "Tickets out." A grid fills dark green. Below: 14 a day. 3: Me in 2019 asks "Which number is true?" Me in 2026 points at a board: vs 2019, 18x; vs 2024, 22x; vs last year, 91x; vs summer, 294x. "All of them. Pick a baseline." 4: Me in 2026 reading a diff. I say "Diffs in. Every day." A box labeled FLOOR GUARD is stamped PASS, and a calendar of 42 squares fills in. Below: 42 of 42 days. Caption: Same engineer. The work changed shape.';
 
 // Animation timing: one 14 s loop with a hold on the final frame.
 const style = `
