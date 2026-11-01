@@ -15,7 +15,6 @@ BlogPosting on each essay. Strings go through jsonify so quotes and apostrophes 
       "name": {{ site.author.name | jsonify }},
       "url": {{ site.url | append: '/' | jsonify }},
       "jobTitle": {{ site.author.job_title | jsonify }},
-      "worksFor": { "@type": "Organization", "name": {{ site.author.employer | jsonify }}, "url": {{ site.author.employer_url | jsonify }} },
       "sameAs": {{ site.author.same_as | jsonify }}
     },
     {
