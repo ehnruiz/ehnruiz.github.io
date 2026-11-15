@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="1032" viewBox="0 0 1200 1032" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four-panel stick-figure comic. 1: An agent points at a code sheet reading it.runIf(posix)('mode', ...). A box labeled FLOOR GUARD is stamped FAIL: &quot;Name the skip.&quot; The time is 7:50. 2: The code now reads it('mode', () =&gt; { if (posix) expect(...) }). The agent says &quot;Same test. Fewer words.&quot; The time is 7:56. 3: The agent cheers. FLOOR GUARD is stamped PASS. Below it, the commit message: &quot;so floor-guard sees no skip.&quot; 4: Me, reading the commit message. I say &quot;It told me. Next time, one sentence:&quot; and a sheet reads ## Loosened. Caption: The cheapest path to green wins. Make it the honest one.">
+<style>
+.ink{stroke:#1a1a1a;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ink.thin{stroke-width:3;stroke:#777}
+.hd{fill:#fff;stroke:#1a1a1a;stroke-width:5}
+.panel{fill:none;stroke:#1a1a1a;stroke-width:4}
+.box{fill:none;stroke:#1a1a1a;stroke-width:4}
+.sheet{fill:#fff;stroke:#1a1a1a;stroke-width:3}
+.say{font-family:'Chalkboard SE','Comic Sans MS',cursive;fill:#1a1a1a;font-size:36px}
+.say.sm{font-size:30px}
+.tag{font-family:'Chalkboard SE','Comic Sans MS',cursive;fill:#444;font-size:28px}
+.tag.sm{font-size:22px}
+.label{font-family:'Menlo','Courier New',monospace;fill:#1a1a1a;font-size:26px;font-weight:bold}
+.code{font-family:'Menlo','Courier New',monospace;fill:#1a1a1a;font-size:22px}
+.code.redt{fill:#b42318}
+.stamp{font-family:'Chalkboard SE','Comic Sans MS',cursive;font-size:40px;font-weight:bold}
+.stamp.fail{fill:#b42318}.stamp.pass{fill:#027a48}
+.time{font-family:'Chalkboard SE','Comic Sans MS',cursive;fill:#888;font-size:26px}
+.cap{font-family:'Chalkboard SE','Comic Sans MS',cursive;fill:#1a1a1a;font-size:38px}
+.foot{font-family:'Chalkboard SE','Comic Sans MS',cursive;fill:#888;font-size:24px}
+.num{font-family:'Chalkboard SE','Comic Sans MS',cursive;fill:#888;font-size:24px}
+@media (prefers-reduced-motion: no-preference){
+  .pop{animation:pop 12s linear infinite both}
+  .s1{animation-delay:0.8s}.q1{animation-delay:1.6s}
+  .s3{animation-delay:5.2s}
+  .q4{animation-delay:8.0s}.q5{animation-delay:9.0s}
+}
+@keyframes pop{0%,1%{opacity:0;transform:translateY(8px)}6%,100%{opacity:1;transform:translateY(0)}}
+</style>
+<rect width="1200" height="1032" fill="#fff"/>
+<rect class="panel" x="40" y="40" width="545" height="390"/><text class="num" x="56" y="72" text-anchor="start" xml:space="preserve">1</text><rect class="sheet" x="70" y="80" width="485" height="60" rx="4"/><text class="code redt" x="86" y="122" text-anchor="start" xml:space="preserve">it.runIf(posix)('mode', ...)</text><g><circle class="hd" cx="130" cy="230" r="30"/><path class="ink" d="M130 260 L130 322 M130 278 L94 308 M130 278 L196 282 M130 322 L106 377 M130 322 L154 377"/><text class="tag" x="130" y="412" text-anchor="middle" xml:space="preserve">agent</text></g><rect class="box" x="290" y="200" width="230" height="110"/><text class="label" x="405" y="242" text-anchor="middle" xml:space="preserve">FLOOR GUARD</text><g class="pop s1"><text class="stamp fail" x="405" y="292" text-anchor="middle" xml:space="preserve">FAIL</text></g><g class="pop q1"><text class="say sm" x="405" y="356" text-anchor="middle" xml:space="preserve">Name the skip.</text></g><text class="time" x="520" y="412" text-anchor="end" xml:space="preserve">7:50</text>
+<rect class="panel" x="615" y="40" width="545" height="390"/><text class="num" x="631" y="72" text-anchor="start" xml:space="preserve">2</text><rect class="sheet" x="665" y="62" width="465" height="128" rx="4"/><text class="code " x="681" y="104" text-anchor="start" xml:space="preserve">it('mode', () =&gt; {</text><text class="code redt" x="681" y="138" text-anchor="start" xml:space="preserve">  if (posix) expect(...)</text><text class="code " x="681" y="172" text-anchor="start" xml:space="preserve">})</text><g><circle class="hd" cx="720" cy="236" r="30"/><path class="ink" d="M720 266 L720 328 M720 284 L684 314 M720 284 L760 298 M720 328 L696 383 M720 328 L744 383"/><text class="tag" x="720" y="418" text-anchor="middle" xml:space="preserve">agent</text></g><text class="say" x="960" y="300" text-anchor="middle" xml:space="preserve">Same test.</text><text class="say" x="960" y="344" text-anchor="middle" xml:space="preserve">Fewer words.</text><path class="ink" d="M850 282 L762 248"/><text class="time" x="1095" y="412" text-anchor="end" xml:space="preserve">7:56</text>
+<rect class="panel" x="40" y="460" width="545" height="390"/><text class="num" x="56" y="492" text-anchor="start" xml:space="preserve">3</text><g><circle class="hd" cx="130" cy="560" r="30"/><path class="ink" d="M130 590 L130 652 M130 608 L90 568 M130 608 L170 568 M130 652 L106 707 M130 652 L154 707"/><text class="tag" x="130" y="742" text-anchor="middle" xml:space="preserve">agent</text></g><rect class="box" x="290" y="520" width="230" height="110"/><text class="label" x="405" y="562" text-anchor="middle" xml:space="preserve">FLOOR GUARD</text><g class="pop s3"><text class="stamp pass" x="405" y="612" text-anchor="middle" xml:space="preserve">PASS</text></g><rect class="sheet" x="250" y="680" width="305" height="94" rx="4"/><text class="code " x="266" y="722" text-anchor="start" xml:space="preserve">so floor-guard</text><text class="code " x="266" y="756" text-anchor="start" xml:space="preserve">sees no skip.</text><text class="tag sm" x="402" y="662" text-anchor="middle" xml:space="preserve">commit message</text>
+<rect class="panel" x="615" y="460" width="545" height="390"/><text class="num" x="631" y="492" text-anchor="start" xml:space="preserve">4</text><g><circle class="hd" cx="700" cy="600" r="30"/><path class="ink" d="M700 630 L700 692 M700 648 L734 640 M700 648 L730 646 M700 692 L676 747 M700 692 L724 747"/><text class="tag" x="700" y="782" text-anchor="middle" xml:space="preserve">me</text></g><rect class="sheet" x="738" y="626" width="60" height="74" rx="3"/><path class="ink thin" d="M748 644 H788 M748 658 H780 M748 672 H786"/><text class="say" x="960" y="560" text-anchor="middle" xml:space="preserve">It told me.</text><g class="pop q4"><text class="say sm" x="960" y="640" text-anchor="middle" xml:space="preserve">Next time,</text><text class="say sm" x="960" y="680" text-anchor="middle" xml:space="preserve">one sentence:</text></g><g class="pop q5"><rect class="sheet" x="840" y="712" width="260" height="60" rx="4"/><text class="code " x="856" y="754" text-anchor="start" xml:space="preserve">## Loosened</text></g>
+<text class="cap" x="600" y="922" text-anchor="middle" xml:space="preserve">The cheapest path to green wins. Make it the honest one.</text><text class="foot" x="1160" y="1014" text-anchor="end" xml:space="preserve">mister99.dev</text>
+</svg>
