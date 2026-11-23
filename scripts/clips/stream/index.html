@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Newsreader";
+        font-style: normal;
+        font-weight: 400 600;
+        src: url("assets/fonts/newsreader-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Newsreader";
+        font-style: italic;
+        font-weight: 400 500;
+        src: url("assets/fonts/newsreader-italic-latin.woff2") format("woff2");
+      }
+      :root {
+        --ground: #faf9f5;
+        --ink: #1f1e1d;
+        --muted: #6b6760;
+        --cell: #ebe8df;
+        --stream: #1d5c86;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--ground);
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        background: var(--ground);
+        color: var(--ink);
+        font-family: "Newsreader", serif;
+        font-optical-sizing: auto;
+      }
+      .line {
+        position: absolute;
+        left: 216px;
+        top: 84px;
+        font-size: 104px;
+        line-height: 1.05;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        white-space: nowrap;
+      }
+      .line span {
+        display: inline-block;
+        white-space: pre;
+      }
+      #line-stream em {
+        font-style: normal;
+        color: var(--stream);
+      }
+      #week {
+        position: absolute;
+        left: 216px;
+        top: 296px;
+        width: 1600px;
+        height: 660px;
+      }
+      #grid {
+        position: absolute;
+        left: 112px;
+        top: 0;
+        width: 1488px;
+        height: 588px;
+      }
+      .cell {
+        position: absolute;
+        width: 56px;
+        height: 78px;
+        border-radius: 5px;
+        background: var(--cell);
+      }
+      .cell i {
+        position: absolute;
+        inset: 0;
+        border-radius: 5px;
+      }
+      .cell .ink {
+        background: var(--ink);
+      }
+      .cell .flow {
+        background: var(--stream);
+        opacity: 0;
+      }
+      .day {
+        position: absolute;
+        left: 0;
+        width: 96px;
+        height: 78px;
+        line-height: 78px;
+        font-size: 32px;
+        color: var(--muted);
+      }
+      .hour {
+        position: absolute;
+        top: 598px;
+        font-size: 30px;
+        color: var(--muted);
+        transform: translateX(-50%);
+        white-space: nowrap;
+      }
+      #frame {
+        position: absolute;
+        left: 603px;
+        top: -5px;
+        width: 563px;
+        height: 424px;
+        border: 3px solid var(--ink);
+        border-radius: 9px;
+        opacity: 0;
+      }
+      #frame-label {
+        position: absolute;
+        left: 603px;
+        top: -50px;
+        font-size: 32px;
+        font-style: italic;
+        color: var(--ink);
+        background: var(--ground);
+        padding: 0;
+        border-radius: 6px;
+        opacity: 0;
+        white-space: nowrap;
+      }
+      #foot {
+        position: absolute;
+        left: 216px;
+        right: 104px;
+        top: 962px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      #source {
+        font-size: 34px;
+        color: var(--muted);
+      }
+      #sign {
+        font-size: 38px;
+        font-weight: 500;
+      }
+      #sign i {
+        font-style: italic;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="7.5"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="line-block" class="line clip" data-start="0" data-duration="2.3" data-track-index="1">
+        <span>Work </span><span>used </span><span>to </span><span>be </span><span>a </span><span>block.</span>
+      </div>
+      <div id="line-stream" class="line clip" data-start="2.3" data-duration="5.2" data-track-index="1">
+        <span>Now </span><span>it </span><span>is </span><span>a </span><span><em>stream.</em></span>
+      </div>
+
+      <div id="week" class="clip" data-start="0" data-duration="7.5" data-track-index="0">
+        <div id="grid"></div>
+        <div id="frame-wrap"><div id="frame" style="margin-left: 112px"></div></div>
+        <div id="frame-label" style="margin-left: 112px">8 to 5</div>
+      </div>
+
+      <div id="foot" class="clip" data-start="4.1" data-duration="3.4" data-track-index="2">
+        <div id="source">My commits by hour of the week, Sep 11 to Nov 22, 2026</div>
+        <div id="sign"><i>The Stream of Consciousness</i> &nbsp;·&nbsp; mister99.dev</div>
+      </div>
+    </div>
+    <script>
+      // Rows are Monday to Sunday, columns are hours 0 to 23 (US Eastern), values are commit counts.
+      const DATA = /*DATA*/ [[2, 3, 0, 1, 7, 11, 34, 50, 37, 28, 45, 26, 23, 8, 21, 12, 12, 17, 51, 42, 65, 32, 16, 9], [3, 0, 16, 23, 18, 21, 14, 19, 25, 36, 63, 18, 30, 37, 19, 18, 4, 39, 32, 31, 45, 36, 4, 5], [16, 10, 3, 3, 4, 52, 28, 44, 55, 32, 20, 21, 20, 30, 31, 29, 27, 25, 47, 74, 15, 13, 20, 9], [27, 11, 21, 0, 21, 10, 18, 31, 21, 31, 9, 11, 68, 50, 52, 25, 38, 22, 8, 18, 20, 18, 20, 13], [10, 3, 2, 5, 26, 37, 60, 51, 55, 38, 48, 35, 81, 45, 45, 110, 30, 27, 39, 38, 27, 16, 32, 21], [8, 6, 0, 0, 34, 41, 40, 31, 33, 48, 56, 74, 74, 31, 75, 82, 29, 63, 48, 60, 63, 66, 42, 39], [16, 4, 3, 2, 20, 58, 19, 42, 20, 12, 68, 43, 25, 37, 42, 81, 35, 39, 31, 26, 45, 30, 15, 7]] /*END*/;
+      const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+      const HOURS = [
+        [0, "midnight"],
+        [6, "6 am"],
+        [12, "noon"],
+        [18, "6 pm"],
+      ];
+      const STEP_X = 62;
+      const STEP_Y = 84;
+      const grid = document.getElementById("grid");
+      const week = document.getElementById("week");
+      const max = Math.max(1, ...DATA.flat());
+      const flows = [];
+      const inks = [];
+      for (let d = 0; d < 7; d++) {
+        const label = document.createElement("div");
+        label.className = "day";
+        label.style.top = d * STEP_Y + "px";
+        label.textContent = DAYS[d];
+        week.appendChild(label);
+        for (let h = 0; h < 24; h++) {
+          const cell = document.createElement("div");
+          cell.className = "cell";
+          cell.style.left = h * STEP_X + "px";
+          cell.style.top = d * STEP_Y + "px";
+          const count = (DATA[d] && DATA[d][h]) || 0;
+          const flow = document.createElement("i");
+          flow.className = "flow";
+          cell.appendChild(flow);
+          flows.push({ el: flow, d, h, level: count ? 0.16 + 0.84 * Math.sqrt(count / max) : 0 });
+          if (d < 5 && h >= 8 && h < 17) {
+            const ink = document.createElement("i");
+            ink.className = "ink";
+            cell.appendChild(ink);
+            inks.push(ink);
+          }
+          grid.appendChild(cell);
+        }
+      }
+      for (const [h, text] of HOURS) {
+        const label = document.createElement("div");
+        label.className = "hour";
+        label.style.left = 112 + h * STEP_X + (h ? 0 : 44) + "px";
+        label.textContent = text;
+        week.appendChild(label);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+
+      // 0 to 2.3 s: the block. It is already on screen at frame 0, which is the thumbnail.
+      tl.to("#line-block span", { opacity: 0, filter: "blur(8px)", duration: 0.2, stagger: 0.03, ease: "power2.in" }, 1.95);
+
+      // 2.3 s: the line changes, the ink block empties into its outline, and the stream runs through the week.
+      tl.fromTo(
+        "#line-stream span",
+        { opacity: 0, filter: "blur(8px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.16, stagger: 0.07, ease: "power4.out" },
+        2.3,
+      );
+      tl.to(inks, { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 2.3);
+      tl.to("#frame", { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 2.3);
+      tl.to("#frame-label", { opacity: 1, duration: 0.4, ease: "power2.out" }, 2.5);
+      for (const f of flows) {
+        if (!f.level) continue;
+        // One front that crosses the week from midnight Monday, each row a little behind the one above it.
+        const at = 2.45 + f.h * 0.062 + f.d * 0.05;
+        tl.fromTo(
+          f.el,
+          { opacity: 0, scaleY: 0.2 },
+          { opacity: f.level, scaleY: 1, duration: 0.55, ease: "expo.out" },
+          at,
+        );
+      }
+
+      // 4.1 s: where the picture comes from, and the title.
+      tl.fromTo("#source", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 4.1);
+      tl.fromTo(
+        "#sign",
+        { opacity: 0, filter: "blur(8px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power4.out" },
+        4.4,
+      );
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

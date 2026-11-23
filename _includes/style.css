@@ -153,7 +153,8 @@ main { max-width: var(--measure); margin: 0 auto; }
 .prose code { padding: 0.05em 0.3em; border: 1px solid var(--rule); border-radius: 4px; }
 .prose pre { padding: 14px 16px; border: 1px solid var(--rule); border-radius: 6px; overflow-x: auto; line-height: 1.45; }
 .prose pre code { border: 0; padding: 0; }
-.prose img { max-width: 100%; height: auto; }
+.prose img, .prose video { max-width: 100%; height: auto; }
+.prose video { display: block; margin: 0 0 20px; border: 1px solid var(--rule); border-radius: 4px; }
 .prose table { border-collapse: collapse; width: 100%; margin: 0 0 24px; font-size: 18px; }
 .prose th, .prose td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 .prose th { font-weight: 600; }
